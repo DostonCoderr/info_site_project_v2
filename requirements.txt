@@ -2,4 +2,5 @@ Django>=4.2
 gunicorn
 whitenoise
 Pillow
-psycopg2-binary  # Agar PostgreSQL ishlatmoqchi bo'lsangiz, o'rniga buni qo'shing
+psycopg2-binary
+django-heroku

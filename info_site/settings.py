@@ -1,16 +1,17 @@
 from pathlib import Path
 import os
+import django_heroku  # Render uchun zarur, requirements.txt ga qo'shilsin
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Xavfsizlik uchun o'zlashtirilgan kalit yarating
-SECRET_KEY = 'django-insecure-testkey'  # Serverda buni o'zgartiring, masalan: secrets.token_urlsafe(50)
+# Environment o'zgaruvchilarini olish
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-testkey')  # Agar env bo'lmasa, default qiymat
 
 # DEBUG ni serverda False qiling
-DEBUG = False  # Renderda har doim False
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'  # Renderda False
 
 # Domeningizni qo'shing
-ALLOWED_HOSTS = ['bmd-bino.uz', 'www.bmd-bino.uz', '*.onrender.com']  # Render domeni uchun
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'bmd-bino.uz,www.bmd-bino.uz,*.onrender.com').split(',')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -19,13 +20,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages',  # Sizning ilovangiz
-    'whitenoise.runserver_nostatic',  # Statik fayllar uchun
+    'pages',
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',  # Whitenoise middleware
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -71,19 +72,20 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Statik fayllar sozlamalari
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # Renderda statik fayllarni yig'ish uchun
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Media fayllar sozlamalari
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Xavfsizlik sozlamalari
-SECURE_SSL_REDIRECT = True  # Renderda HTTPS majburiy
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = os.environ.get('SECURE_SSL_REDIRECT', 'True').lower() == 'true'
+CSRF_COOKIE_SECURE = os.environ.get('CSRF_COOKIE_SECURE', 'True').lower() == 'true'
+SESSION_COOKIE_SECURE = os.environ.get('SESSION_COOKIE_SECURE', 'True').lower() == 'true'
+
+# Render uchun django_heroku sozlamalari
+django_heroku.settings(locals())
