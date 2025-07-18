@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Ochiq Ma'lumotlar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/ochiq_malumotlar.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> {# Ikonkalar uchun #}
+</head>
+<body>
+    <header class="main-header">
+          <div class="header-top">
+            <div class="container header-top-container">
+                <div class="header-logo-section">
+                    <img src="{% static 'images/logo.png' %}" alt="Andijon Viloyat Madaniyat Boshqarmasi Logotipi" class="logo">
+                    <div class="header-title-text">
+                        <h1>O'ZBEKISTON</h1>
+                        <h2>Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi</h2>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}" class="nav-link">BOSH SAXIFA</a>
+                   <a href="{% url 'biz_haqimizda' %}" class="nav-link">BIZ HAQIMIZDA</a>
+                    <a href="{% url 'manzil' %}" class="nav-link">MANZIL</a>
+                    <a href="{% url 'ochiq_malumotlar' %}" class="nav-link">OCHIQ MA'LUMOTLAR</a>
+                    <a href="{% url 'aloqa' %}" class="nav-link">ALOQA</a>
+                    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container open-data-section">
+            <h2 class="section-title">Ochiq Ma'lumotlar Ro'yxati</h2>
+
+             <div class="accessibility-panel">
+            <button class="access-btn">A+</button>
+            <button class="access-btn">Aa</button>
+            <button class="access-btn">A-</button>
+            <button class="access-btn"><i class="fas fa-volume-up"></i></button>
+            <button class="access-btn"><i class="fas fa-eye-slash"></i></button>
+        </div>
+
+            <div class="data-list-grid">
+                {% if ochiq_malumotlar %} {# Contextda 'ochiq_malumotlar' nomli ro'yxat keladi #}
+                    {% for item in ochiq_malumotlar %}
+                        <div class="data-item-card">
+                            {% if item.image %} {# Agar 'image' maydoni mavjud bo'lsa #}
+                                <img src="{{ item.image.url }}" alt="{{ item.title|default:'Ma\'lumot rasmi' }}" class="data-item-image">
+                            {% elif item.is_image_file %} {# Views.py dan kelgan yangi is_image_file atributini tekshiramiz #}
+                                <img src="{{ item.file.url }}" alt="{{ item.title|default:'Ma\'lumot rasmi' }}" class="data-item-image">
+                            {% else %} {# Agar rasm bo'lmasa, umumiy fayl ikonkasini ko'rsat #}
+                                <div class="data-item-icon-placeholder">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                            {% endif %}
+
+                            <div class="data-item-content">
+                                <h3>{{ item.title|default:'Ma\'lumot Nomi' }}</h3>
+                                <p>{{ item.description|default:'Bu ma\'lumot fayli haqida qisqacha tavsif.' }}</p>
+
+                                {% if item.file %}
+                                    <div class="data-item-actions">
+                                        <a href="{{ item.file.url }}" download class="download-link">
+                                            <i class="fas fa-download"></i> Faylni yuklab olish
+                                        </a>
+                                        <span class="file-size">({{ item.file.size|filesizeformat }})</span>
+                                    </div>
+                                {% else %}
+                                    <p class="no-file-info">Fayl mavjud emas.</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="no-data-message">Hozircha ochiq ma'lumotlar mavjud emas.</p>
+                {% endif %}
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Madaniyat vazirligi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Madaniyat Vazirligi — Rasmiy Ma'lumot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}" defer></script>
+</head>
+<body>
+    <!-- Loader with Animated Logo -->
+    <div id="loader" class="loader">
+        <img src="{% static 'images/Logo.gif' %}" alt="Loading Animation" class="loader-logo">
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="{% static 'images/logo.png' %}" alt="Madaniyat Vazirligi Logotipi" class="logo">
+                <h1>
+                    Madaniyat vazirligi huzuridagi<br>
+                    “Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi”<br>
+                    Davlat muassasasi
+                </h1>
+            </div>
+        </div>
+        <nav>
+            <a href="#" class="tab-link active" data-tab="ochiq">OCHIQ MA'LUMOTLAR</a>
+            <a href="#" class="tab-link" data-tab="biz">BIZ HAQIMIZDA</a>
+            <a href="#" class="tab-link" data-tab="manzil">MANZIL</a>
+            <a href="#" class="tab-link" data-tab="aloqa">ALOQA</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="ochiq" class="tab-content active content">
+                {{ ochiq_content|safe }}
+                {% if ochiq.file %}
+                <p><img src="{{ ochiq.file.url }}" alt="Image" class="content-image"></p>
+                <p>
+                    📎 <a href="{{ ochiq.file.url }}" download>Faylni yuklab olish: {{ ochiq.file.name }}</a>
+                </p>
+                {% endif %}
+            </div>
+
+            <div id="biz" class="tab-content">
+                <div class="content">
+                    {{ biz_content|safe }}
+                    {% if biz.file %}
+                    <p>
+                        <a href="{{ biz.file.url }}" target="_blank">📄 Yuklab olish (PDF)</a>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div id="manzil" class="tab-content">
+                <div class="content">
+                    <h2>Manzil</h2>
+                    <div class="address-column">
+                        <p><strong>Address:</strong> <a href="https://yandex.com/maps/?ll=69.216270,41.311081&z=15" target="_blank" class="map-link">Shayxontohur tumani, Xadra MFY, Markaz-14, 56-uy</a> (Yandex xaritada ko'rish)</p>
+                        <p><strong>Telefon raqam:</strong> +998 77 777 07 07</p>
+                        <p><strong>Mahalla:</strong> Orinter Sirk, teatr Milliy drama Navoiy ko‘cha</p>
+                        <p><img src="https://static-maps.yandex.ru/1.x/?ll=69.216270,41.311081&spn=0.01,0.01&l=map&pt=69.216270,41.311081,pm2rdm" alt="Map of Location" class="map-image"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aloqa" class="tab-content">
+                <div class="content">
+                    <h2>Aloqa</h2>
+                    <p><strong>Manzil:</strong> <a href="https://yandex.com/maps/?ll=69.216270,41.311081&z=15" target="_blank" class="map-link">Shayxontohur tumani, Xadra MFY, Markaz-14, 56-uy</a> (Yandex xaritada ko'rish)</p>
+                    <p><strong>Telefon:</strong> +998 71 200 00 00</p>
+                    <p><strong>Ijtimoiy tarmoqlar:</strong></p>
+                    <p>
+                        <a href="https://facebook.com/madaniyatvazirligi" target="_blank">Facebook</a> |
+                        <a href="https://instagram.com/madaniyatvazirligi" target="_blank">Instagram</a> |
+                        <a href="https://telegram.org/madaniyatvazirligi" target="_blank">Telegram</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Madaniyat vazirligi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+</body>
+</html>

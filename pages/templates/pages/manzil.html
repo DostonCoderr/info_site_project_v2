@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Manzil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/manzil.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+         <div class="header-top">
+            <div class="container header-top-container">
+                <div class="header-logo-section">
+                    <img src="{% static 'images/logo.png' %}" alt="Andijon Viloyat Madaniyat Boshqarmasi Logotipi" class="logo">
+                    <div class="header-title-text">
+                        <h1>O'ZBEKISTON</h1>
+                        <h2>Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi</h2>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}" class="nav-link">BOSH SAXIFA</a>
+                   <a href="{% url 'biz_haqimizda' %}" class="nav-link">BIZ HAQIMIZDA</a>
+                    <a href="{% url 'manzil' %}" class="nav-link">MANZIL</a>
+                    <a href="{% url 'ochiq_malumotlar' %}" class="nav-link">OCHIQ MA'LUMOTLAR</a>
+                    <a href="{% url 'aloqa' %}" class="nav-link">ALOQA</a>
+                    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container location-section">
+            <h2 class="section-title">Bizning Manzil</h2>
+
+            <div class="location-content">
+                <div class="address-details">
+                    <div class="detail-item">
+                        <div class="item-header">
+                            <i class="fas fa-map-marker-alt icon-small"></i> {# Kichikroq ikonka klassi #}
+                            <h3>Manzil</h3>
+                        </div>
+                        <p>Shayxontohur tumani, Xadra MFY, Markaz-14, 56-uy</p>
+                        <a href="https://yandex.com/maps/?ll=69.216270,41.311081&z=15" target="_blank" class="map-link">Yandex xaritada ko'rish <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="item-header">
+                            <i class="fas fa-phone-alt icon-small"></i> {# Kichikroq ikonka klassi #}
+                            <h3>Telefon raqam</h3>
+                        </div>
+                        <p>+998 77 777 07 07</p>
+                        <a href="tel:+998777770707" class="map-link">Qo'ng'iroq qilish <i class="fas fa-phone"></i></a>
+                    </div>
+
+                    <div class="detail-item">
+                        <div class="item-header">
+                            <i class="fas fa-building icon-small"></i> {# Kichikroq ikonka klassi #}
+                            <h3>Mo'ljal</h3>
+                        </div>
+                        <p>Orinter: Sirk, teatr Milliy drama, Navoiy ko‘chasi</p>
+                        {# Bu yerda xaritaga havola bo'lmagani uchun havola qo'shmadim #}
+                    </div>
+
+                     <div class="accessibility-panel">
+            <button class="access-btn">A+</button>
+            <button class="access-btn">Aa</button>
+            <button class="access-btn">A-</button>
+            <button class="access-btn"><i class="fas fa-volume-up"></i></button>
+            <button class="access-btn"><i class="fas fa-eye-slash"></i></button>
+        </div>
+                </div>
+
+                <div class="map-container">
+                    {# Google Maps Embed API orqali interaktiv xarita #}
+                    {# Iltimos, quyidagi URL ni o'zingizning aniq manzil koordinatalaringiz bilan almashtiring #}
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11986.745672909436!2d69.20815255!3d41.3110091!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b1b1f6d0f9d%3A0x6a2c2c0c1b0a1a0!2sTashkent%20Circus!5e0!3m2!1sen!2s!4v1701777777777!5m2!1sen!2s" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="map-note">Xaritada joylashuvimizni ko'ring.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Madaniyat vazirligi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

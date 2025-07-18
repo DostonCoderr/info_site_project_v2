@@ -1,0 +1,454 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 90%; /* Rasmdagi kabi kengroq qilish uchun */
+    max-width: 1200px; /* Maksimal kenglik qo'shildi */
+    margin: auto;
+    overflow: hidden;
+}
+
+.header-top {
+    background-color: #fff; /* Oq fon */
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.header-top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.header-logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Kichikroq logo */
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-title-text h1 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+.header-title-text h2 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+    font-weight: normal;
+}
+
+/* Navbar styles */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .nav-link {
+    color: #555;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Matnni bir qatorda ushlab turish */
+}
+
+.main-nav .nav-link:hover {
+    color: #007bff; /* Hover rangi */
+}
+
+.menu-toggle {
+    display: none; /* Desktopda yashirish */
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+/* Main content styles */
+main {
+    flex-grow: 1;
+    padding: 40px 0;
+}
+
+.contact-section { /* Yangi klass */
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #003087;
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #e8491d;
+    border-radius: 2px;
+}
+
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    flex: 1 1 calc(33% - 60px); /* 3 ta ustun, kichik ekranlarda moslashadi */
+    max-width: 350px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    font-size: 3em;
+    color: #003087;
+    margin-bottom: 15px;
+}
+
+.contact-card h3 {
+    color: #003087;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.contact-card p {
+    font-size: 1.05em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card-link {
+    color: #e8491d;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.card-link:hover {
+    color: #003087;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #003087;
+}
+
+.social-links a i {
+    font-size: 1.2em;
+    width: 25px;
+    text-align: center;
+}
+
+/* Contact Form Styles */
+.contact-form-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: left;
+}
+
+.form-title {
+    color: #003087;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box; /* Padding va border kenglikka ta'sir qilmasligi uchun */
+}
+
+.contact-form textarea {
+    resize: vertical; /* Faqat vertikal o'lchamni o'zgartirishga ruxsat berish */
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: block; /* Butun kenglikni egallashi uchun */
+    width: 100%; /* Kenglikni to'ldirish */
+    max-width: 200px; /* Maksimal kenglik */
+    margin: 20px auto 0; /* O'rtaga joylash va yuqoridan bo'sh joy */
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Footer styles (home.html dagi stillarga moslashtirildi) */
+footer {
+    background: #003087;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 10px;
+        margin-left: 0;
+        display: none;
+        background-color: transparent;
+        border-radius: 0;
+    }
+    .main-nav.active {
+        display: flex;
+    }
+    .main-nav .nav-link {
+        margin: 5px 0;
+        padding: 8px 0;
+        width: 100%;
+        text-align: left;
+        background-color: #002966;
+        padding-left: 15px;
+    }
+    .main-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 25px;
+    }
+    .contact-cards {
+        flex-direction: column; /* Mobil ekranlarda kartochkalarni ustma-ust qo'yish */
+        align-items: center;
+    }
+    .contact-card {
+        flex: 1 1 90%; /* Katta bo'lishi uchun */
+        max-width: 500px; /* Maksimal kenglik */
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 50px;
+    }
+    .header-title-text h1 {
+        font-size: 1.4em;
+    }
+    .header-title-text h2 {
+        font-size: 1em;
+    }
+    .sub-title {
+        font-size: 0.8em;
+    }
+    .menu-toggle {
+        font-size: 1.5em;
+    }
+    .section-title {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .contact-card {
+        padding: 20px;
+    }
+    .card-icon {
+        font-size: 2.5em;
+    }
+    .contact-card h3 {
+        font-size: 1.3em;
+    }
+    .contact-form-section {
+        padding: 20px;
+    }
+    .form-title {
+        font-size: 1.8em;
+    }
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+
+
+/* Accessibility Panel */
+.accessibility-panel {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.access-btn {
+    background: none;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.access-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+
+/* Main content styles */
+.content-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+
+
+/* Accessibility styles */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #0f0 !important; /* Yashi matn */
+}
+
+body.high-contrast a {
+    color: #0ff !important; /* Moviy havolalar */
+}
+
+body.high-contrast .header-top,
+body.high-contrast footer,
+body.high-contrast .accessibility-panel {
+    background-color: #333 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .header-title-text h1,
+body.high-contrast .header-title-text h2 {
+    color: #0f0 !important;
+}
+
+body.high-contrast .main-nav .nav-link {
+    color: #0ff !important;
+}
+
+body.high-contrast .access-btn {
+    background-color: #555 !important;
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .hero-title {
+    color: #0f0 !important;
+    text-shadow: none !important;
+}
+
+body.high-contrast .social-icons a {
+    background-color: #555 !important;
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .dot {
+    background-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+body.high-contrast .dot.active, body.high-contrast .dot:hover {
+    background-color: #0f0 !important;
+}

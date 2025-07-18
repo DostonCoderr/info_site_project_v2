@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Biz Haqimizda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/biz_haqimizda.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> {# Ikonkalar uchun #}
+</head>
+<body>
+    <header class="main-header">
+       <div class="header-top">
+            <div class="container header-top-container">
+                <div class="header-logo-section">
+                    <img src="{% static 'images/logo.png' %}" alt="Andijon Viloyat Madaniyat Boshqarmasi Logotipi" class="logo">
+                    <div class="header-title-text">
+                        <h1>O'ZBEKISTON</h1>
+                        <h2>Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi</h2>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                    <a href="{% url 'home' %}" class="nav-link">BOSH SAXIFA</a>
+                   <a href="{% url 'biz_haqimizda' %}" class="nav-link">BIZ HAQIMIZDA</a>
+                    <a href="{% url 'manzil' %}" class="nav-link">MANZIL</a>
+                    <a href="{% url 'ochiq_malumotlar' %}" class="nav-link">OCHIQ MA'LUMOTLAR</a>
+                    <a href="{% url 'aloqa' %}" class="nav-link">ALOQA</a>
+                    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container about-us-section"> {# Yangi klass #}
+            <h2 class="section-title">Biz Haqimizda</h2> {# section-title klassini qo'shdik #}
+             <div class="accessibility-panel">
+            <button class="access-btn">A+</button>
+            <button class="access-btn">Aa</button>
+            <button class="access-btn">A-</button>
+            <button class="access-btn"><i class="fas fa-volume-up"></i></button>
+            <button class="access-btn"><i class="fas fa-eye-slash"></i></button>
+        </div>
+            <div class="about-content"> {# Kontent uchun yangi div #}
+                {% if biz_content %} {# views.py dan kelgan 'biz_content' #}
+                    {{ biz_content|safe }} {# HTML taglarini ko'rsatish uchun 'safe' filteri #}
+                {% else %}
+                    <p>Bu yerda "Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi" haqida to'liq ma'lumotlar beriladi. Bizning vazifamiz madaniyat obyektlarini samarali boshqarish va ularni muhofaza qilishdan iborat.</p>
+                {% endif %}
+
+                {% if biz.file %} {# Agar PageContent modelida file maydoni bo'lsa #}
+                <div class="download-section">
+                    <p class="file-info">Qo'shimcha ma'lumotlar bilan tanishing:</p>
+                    <a href="{{ biz.file.url }}" target="_blank" class="download-link">
+                        <i class="fas fa-file-pdf"></i> Faylni yuklab olish
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Madaniyat vazirligi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script> {# Menu toggle uchun script kerak bo'ladi #}
+</body>
+</html>

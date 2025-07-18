@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>O'zbekiston Madaniyat Vazirligi — Asosiy Sahifa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="header-top">
+            <div class="container header-top-container">
+                <div class="header-logo-section">
+                    <img src="{% static 'images/logo.png' %}" alt="Andijon Viloyat Madaniyat Boshqarmasi Logotipi" class="logo">
+                    <div class="header-title-text">
+                        <h1>O'ZBEKISTON</h1>
+                        <h2>Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi</h2>
+                    </div>
+                </div>
+                <nav class="main-nav">
+                   <a href="{% url 'biz_haqimizda' %}" class="nav-link">BIZ HAQIMIZDA</a>
+                    <a href="{% url 'manzil' %}" class="nav-link">MANZIL</a>
+                    <a href="{% url 'ochiq_malumotlar' %}" class="nav-link">OCHIQ MA'LUMOTLAR</a>
+                    <a href="{% url 'aloqa' %}" class="nav-link">ALOQA</a>
+                    <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+                </nav>
+            </div>
+        </div>
+
+        <div class="hero-main">
+            <img src="{% static 'images/Hero.jpg' %}" alt="Andijon Navoiy Bog'i" class="hero-img">
+            <div class="hero-overlay">
+                <div class="container hero-content-container">
+                    <h2 class="hero-title">Binolardan foydalanish va ularni ekspluatatsiya qilish direksiyasi </h2>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="pagination">
+                        <span class="dot active"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                        <span class="dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="accessibility-panel">
+            <button class="access-btn">A+</button>
+            <button class="access-btn">Aa</button>
+            <button class="access-btn">A-</button>
+            <button class="access-btn"><i class="fas fa-volume-up"></i></button>
+            <button class="access-btn"><i class="fas fa-eye-slash"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div class="container content-section">
+            <p>Bu yerda asosiy sahifa uchun qolgan kontent joylashadi.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Andijon Viloyat Madaniyat Boshqarmasi. Barcha huquqlar himoyalangan.</p>
+        </div>
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

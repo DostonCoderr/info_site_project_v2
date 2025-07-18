@@ -1,0 +1,391 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 90%; /* Rasmdagi kabi kengroq qilish uchun */
+    max-width: 1200px; /* Maksimal kenglik qo'shildi */
+    margin: auto;
+    overflow: hidden;
+}
+/* Header styles (ochiq_malumotlar.css bilan bir xil) */
+.header-top {
+    background-color: #fff; /* Oq fon */
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.header-top-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.header-logo-section {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px; /* Kichikroq logo */
+    height: auto;
+    margin-right: 15px;
+}
+
+.header-title-text h1 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+}
+
+.header-title-text h2 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+    font-weight: normal;
+}
+
+/* Navbar styles */
+.main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.main-nav .nav-link {
+    color: #555;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Matnni bir qatorda ushlab turish */
+}
+
+.main-nav .nav-link:hover {
+    color: #007bff; /* Hover rangi */
+}
+
+.menu-toggle {
+    display: none; /* Desktopda yashirish */
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+
+
+
+.accessibility-panel {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.access-btn {
+    background: none;
+    border: 1px solid #ccc;
+    color: #333;
+    padding: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 3px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.access-btn:hover {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #007bff;
+}
+
+
+
+body.high-contrast {
+    background-color: #000 !important;
+    color: #0f0 !important; /* Yashi matn */
+}
+
+body.high-contrast a {
+    color: #0ff !important; /* Moviy havolalar */
+}
+
+body.high-contrast .header-top,
+body.high-contrast footer,
+body.high-contrast .accessibility-panel {
+    background-color: #333 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .header-title-text h1,
+body.high-contrast .header-title-text h2 {
+    color: #0f0 !important;
+}
+
+body.high-contrast .main-nav .nav-link {
+    color: #0ff !important;
+}
+
+body.high-contrast .access-btn {
+    background-color: #555 !important;
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .hero-title {
+    color: #0f0 !important;
+    text-shadow: none !important;
+}
+
+body.high-contrast .social-icons a {
+    background-color: #555 !important;
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+}
+
+body.high-contrast .dot {
+    background-color: rgba(0, 255, 0, 0.5) !important;
+}
+
+body.high-contrast .dot.active, body.high-contrast .dot:hover {
+    background-color: #0f0 !important;
+}
+
+/* Main content styles */
+main {
+    flex-grow: 1;
+    padding: 50px 0;
+}
+
+.about-us-section { /* Ochiq ma'lumotlardagi .open-data-section ga o'xshash */
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    text-align: center; /* Kontent markazda bo'lishi mumkin */
+    margin-bottom: 40px;
+}
+
+.section-title { /* Ochiq ma'lumotlardagi .section-title bilan bir xil */
+    color: #0d47a1;
+    font-size: 3.2em;
+    margin-bottom: 50px;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 5px;
+    background-color: #fbc02d;
+    border-radius: 3px;
+}
+
+.about-content {
+    text-align: justify; /* Matnni ikki tomonga tekislash */
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #4a4a4a;
+    max-width: 900px; /* Matnning o'qilishi qulay bo'lishi uchun maksimal kenglik */
+    margin: 0 auto 30px auto; /* Markazga joylash */
+}
+
+.about-content p {
+    margin-bottom: 1em; /* Paragraflar orasidagi bo'sh joy */
+}
+
+.download-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed #e0e0e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Markazga joylash */
+}
+
+.file-info {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.download-link {
+    color: #1976d2;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 25px; /* Kattaroq padding */
+    border: 2px solid #1976d2;
+    border-radius: 30px; /* Yanada dumaloq */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.download-link:hover {
+    background-color: #1976d2;
+    color: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.3);
+}
+
+.download-link i {
+    font-size: 1.3em; /* Kattaroq ikonka */
+}
+
+/* Footer styles (ochiq_malumotlar.css bilan bir xil) */
+footer {
+    background: #0d47a1;
+    color: #e3f2fd;
+    text-align: center;
+    padding: 25px 0;
+    margin-top: auto;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .header-top-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .header-logo-section {
+        width: 100%;
+        justify-content: center;
+    }
+    .header-title-text {
+        text-align: center;
+        width: 100%;
+    }
+    .header-title-text h1 {
+        font-size: 1.5em;
+    }
+    .header-title-text h2 {
+        font-size: 1em;
+    }
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 15px;
+        margin-left: 0;
+        display: none;
+        background-color: #1976d2;
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    .main-nav.active {
+        display: flex;
+        position: absolute;
+        top: 115px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        z-index: 999;
+    }
+    .main-nav .nav-link {
+        margin: 5px 0;
+        padding: 12px 15px;
+        width: 100%;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 6px;
+    }
+    .main-nav .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 25px;
+        top: 30px;
+    }
+    .section-title {
+        font-size: 2.5em;
+        margin-bottom: 35px;
+    }
+    .about-us-section {
+        padding: 30px;
+    }
+    .about-content {
+        font-size: 1em; /* Kichik ekranlar uchun shriftni kamaytirdik */
+    }
+    .download-link {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+}
+
+@media (max-width: 576px) {
+    .logo {
+        width: 65px;
+    }
+    .header-title-text h1 {
+        font-size: 1.2em;
+    }
+    .header-title-text h2 {
+        font-size: 0.9em;
+    }
+    .sub-title {
+        font-size: 0.7em;
+    }
+    .menu-toggle {
+        font-size: 1.8em;
+        top: 25px;
+    }
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 25px;
+    }
+    .section-title::after {
+        width: 80px;
+        height: 3px;
+    }
+    .about-us-section {
+        padding: 20px;
+    }
+    .about-content {
+        font-size: 0.95em;
+        text-align: left; /* Mobil ekranlarda chapga tekislash qulayroq bo'lishi mumkin */
+    }
+    .download-link {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+    .download-section {
+        text-align: center; /* Mobil ekranlarda markazga tekislash */
+    }
+}
