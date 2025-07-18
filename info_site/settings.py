@@ -1,12 +1,16 @@
 from pathlib import Path
+import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-testkey'
+# Xavfsizlik uchun o'zlashtirilgan kalit yarating
+SECRET_KEY = 'django-insecure-testkey'  # Serverda buni o'zgartiring, masalan: secrets.token_urlsafe(50)
 
-DEBUG = True
+# DEBUG ni serverda False qiling
+DEBUG = False  # Renderda har doim False
 
-ALLOWED_HOSTS = []
+# Domeningizni qo'shing
+ALLOWED_HOSTS = ['bmd-bino.uz', 'www.bmd-bino.uz', '*.onrender.com']  # Render domeni uchun
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -15,11 +19,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'pages',
+    'pages',  # Sizning ilovangiz
+    'whitenoise.runserver_nostatic',  # Statik fayllar uchun
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Whitenoise middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,13 +71,19 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
-import os
-
+# Statik fayllar sozlamalari
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-import os
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # Renderda statik fayllarni yig'ish uchun
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+# Media fayllar sozlamalari
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Xavfsizlik sozlamalari
+SECURE_SSL_REDIRECT = True  # Renderda HTTPS majburiy
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
