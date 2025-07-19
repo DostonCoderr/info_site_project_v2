@@ -1,11 +1,16 @@
 from django.shortcuts import render, get_object_or_404
 from .models import PageContent, OchiqMalumot # OchiqMalumotni qayta import qiling
+from django.views.generic import TemplateView
 
-def home(request):
-    home_content = get_object_or_404(PageContent, page_type='home')
-    return render(request, 'pages/home.html', {
-        'home_content': home_content.content
-    })
+
+class home(TemplateView):
+    template_name ='pages/home.html'
+
+# def home(request):
+#     home_content = get_object_or_404(PageContent, page_type='home')
+#     return render(request, 'pages/home.html', {
+#         'home_content': home_content.content
+#     })
 
 def ochiq_malumotlar(request):
     # Bu qatorni 'ochiq_malumotlar_sahifasi' deb o'zgartiring
