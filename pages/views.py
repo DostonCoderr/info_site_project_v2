@@ -3,7 +3,7 @@ from .models import PageContent, OchiqMalumot # OchiqMalumotni qayta import qili
 
 def home(request):
     home_content = get_object_or_404(PageContent, page_type='home')
-    return render(request, 'home.html', {
+    return render(request, 'pages/home.html', {
         'home_content': home_content.content
     })
 
