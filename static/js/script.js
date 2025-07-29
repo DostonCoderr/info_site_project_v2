@@ -33,12 +33,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFontSize = 16; // Asl holatga qaytarish
                 body.style.fontSize = currentFontSize + 'px';
                 body.classList.remove('high-contrast'); // Ko'zi ojizlar rejimini o'chirish
-                // Agar boshqa stil o'zgarishlari bo'lsa, bu yerda qaytarish
             } else if (iconClass === 'fa-volume-up') {
-                // Matnni ovoz chiqarib o'qish funksiyasi (qiyinroq, bu yerda oddiy alert)
                 alert("Matnni ovoz chiqarib o'qish funksiyasi (ishlamoqda deb hisoblang!)");
             } else if (iconClass === 'fa-eye-slash') {
-                // Ko'zi ojizlar rejimi (yuqori kontrast)
                 body.classList.toggle('high-contrast');
             }
         });
