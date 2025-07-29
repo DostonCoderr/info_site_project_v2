@@ -9,6 +9,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  const mainContent = document.getElementById("main-content");
+
+  // 500ms delay so it's not instant (adjust if needed)
+  setTimeout(() => {
+    loader.style.display = "none";
+    mainContent.style.display = "block";
+  }, 500);
+});
+
     // Accessibility Panel Functionality
     const accessibilityPanel = document.querySelector('.accessibility-panel');
     const body = document.body;
