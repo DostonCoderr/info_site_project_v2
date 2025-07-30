@@ -1,24 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mainNav = document.querySelector('.main-nav');
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
 
     if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', function() {
-            mainNav.classList.toggle('active');
+            mainNav.classList.toggle('active'); // Toggles the 'active' class
         });
     }
 
-    window.addEventListener("load", () => {
-  const loader = document.getElementById("loader");
-  const mainContent = document.getElementById("main-content");
+    // Loader functionality - Bu qism o'chirildi, chunki sizga loader kerak emas dedingiz.
+    // Agar loader kerak bo'lsa, HTMLdagi loader divini sharhdan oling
+    // va bu yerda quyidagi kodni qayta yoqing:
+    /*
+    const loader = document.getElementById('loader');
+    const mainContent = document.getElementById('main-content');
 
-  // 500ms delay so it's not instant (adjust if needed)
-  setTimeout(() => {
-    loader.style.display = "none";
-    mainContent.style.display = "block";
-  }, 500);
-});
+    if (loader && mainContent) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                loader.style.display = 'none';
+                mainContent.style.display = 'block';
+            }, 500);
+        });
+    }
+    */
+
 
     // Accessibility Panel Functionality
     const accessibilityPanel = document.querySelector('.accessibility-panel');
@@ -27,12 +34,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (accessibilityPanel) {
         accessibilityPanel.addEventListener('click', function(event) {
-            const target = event.target.closest('.access-btn'); // Tugmani topish
+            const target = event.target.closest('.access-btn');
 
-            if (!target) return; // Agar tugma bo'lmasa, qaytish
+            if (!target) return;
 
             const buttonText = target.textContent.trim();
-            const iconClass = target.querySelector('i')?.classList[1]; // Ikonka klassini olish
+            const iconElement = target.querySelector('i');
+            const iconClass = iconElement ? iconElement.classList[1] : null;
 
             if (buttonText === 'A+') {
                 currentFontSize += 2;
@@ -41,9 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentFontSize -= 2;
                 body.style.fontSize = currentFontSize + 'px';
             } else if (buttonText === 'Aa') {
-                currentFontSize = 16; // Asl holatga qaytarish
+                currentFontSize = 16; // Reset to original font size
                 body.style.fontSize = currentFontSize + 'px';
-                body.classList.remove('high-contrast'); // Ko'zi ojizlar rejimini o'chirish
+                body.classList.remove('high-contrast'); // Turn off high contrast mode
             } else if (iconClass === 'fa-volume-up') {
                 alert("Matnni ovoz chiqarib o'qish funksiyasi (ishlamoqda deb hisoblang!)");
             } else if (iconClass === 'fa-eye-slash') {
@@ -51,4 +59,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-});
+}); 
