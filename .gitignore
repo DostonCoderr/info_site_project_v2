@@ -13,6 +13,7 @@ venv/
 # Django static & media files
 staticfiles/
 media/
+/staticfiles/
 
 # VSCode config
 .vscode/
